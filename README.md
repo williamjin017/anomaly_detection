@@ -3,11 +3,11 @@ InsightData Coding challenge
 
 #### Algorithm time complexity :
 
-- O(TN) -- if T > number of network under the given D. N is number of streaming data events.
+- worst run-time: O(T*N + Dn) --  N is number of users multiple T. Dn is the size of the user's D degree network
 
 #### Space complexity:
 
-- O(U^2 + T + N)   --  U is number of users
+- worst space complexity: O(U^2 + T*U)   --  U is number of users
 
 I only changed process_log.py function, everything remains unchanged.
 
