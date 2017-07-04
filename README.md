@@ -7,7 +7,7 @@ InsightData Coding challenge
 
 #### Space complexity:
 
-- O(T + N)
+- O(U^2 + T + N)   : U is number of users
 
 I only changed process_log.py function, everything remains unchanged.
 
