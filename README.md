@@ -3,11 +3,13 @@ InsightData Coding challenge
 
 #### Algorithm time complexity :
 
-- worst run-time: O(T*N + Dn) --  N is number of users multiple T. Dn is the size of the user's D degree network
+* N is number of users. Dn is the size of a user's D degree network, T is a maxmium number of given consecutive purchases.
+
+- worst run-time: O(T*N + Dn) 
 
 #### Space complexity:
 
-- worst space complexity: O(U^2 + T*U)   --  U is number of users
+- worst space complexity: O(N^2 + T*N) 
 
 I only changed process_log.py function, everything remains unchanged.
 
