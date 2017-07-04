@@ -60,6 +60,8 @@ def convert_to_json(timestamp, id, amount, mean, sd):
 
 # for streaming data
 def new_purchase_detect(user_id, amount, time_stamp, D, T, of):
+    global friends
+    global purchase
     other_ids = bfs(user_id, D)
     other_ids.remove(user_id)
     mean = 0
@@ -77,11 +79,14 @@ def new_purchase_detect(user_id, amount, time_stamp, D, T, of):
         sd = sum([pow((x - mean), 2) for x in temp])
         sd = math.sqrt(sd / float(len(temp)))
         if sd * 3 + mean < amount:
-            print(json.dumps(
-                {"event_type": "purchase", "timestamp": time_stamp, "id": str(user_id), "amount": format(amount, '.2f'),
-                 "mean": format(mean, '.2f'),
-                 "sd": format(sd, '.2f')}))
-            of.writelines(convert_to_json(time_stamp, str(user_id), format(amount, '.2f'), format(mean, '.2f'), format(sd, '.2f')) + '\n')
+            print(convert_to_json(time_stamp, str(user_id), format(amount, '.2f'), format(mean, '.2f'),
+                                  format(sd, '.2f')))
+            of.writelines(convert_to_json(time_stamp, str(user_id), format(amount, '.2f'), format(mean, '.2f'),
+                                          format(sd, '.2f')) + '\n')
+    # remove unused purchases.
+    maxCheck = len(friends) * T
+    if max > len(purchase):
+        purchase = purchase[-maxCheck:]
 
 
 def run_json_file(f, stream, D, T, of):
