@@ -1,9 +1,10 @@
 # anomaly_detection
 InsightData Coding challenge
 
-#### Algorithm time complexity :
+##### N is number of users. Dn is the size of a user's D degree network, T is a maxmium number of given consecutive purchases.
 
-* N is number of users. Dn is the size of a user's D degree network, T is a maxmium number of given consecutive purchases.
+#### Time complexity :
+
 
 - worst run-time: O(T*N + Dn) 
 
